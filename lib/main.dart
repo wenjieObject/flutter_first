@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 import 'package:flutter/rendering.dart';
-
 import 'login/login.dart';
 import 'login/register.dart';
 
@@ -127,9 +125,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              //style: Theme.of(context).textTheme.headline4,
             ),
-            RandomWordsWidget(),
+            //RandomWordsWidget(),
             Echo(text: "hello world"),
             IconWidget(),
             SwitchAndCheckBoxTestRoute(),
@@ -209,16 +207,16 @@ class IconWidget extends StatelessWidget {
 }
 
 //生成随机字符串
-class RandomWordsWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final wordPair = new WordPair.random();
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: new Text(wordPair.toString()),
-    );
-  }
-}
+// class RandomWordsWidget extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     final wordPair = new WordPair.random();
+//     return Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: new Text(wordPair.toString()),
+//     );
+//   }
+// }
 
 //加载图片
 class ImageWidget extends StatelessWidget {
