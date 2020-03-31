@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/rendering.dart';
 
+import 'login/login.dart';
+import 'login/register.dart';
+
+
 void main() {
   runApp(MyApp());
 }
@@ -11,97 +15,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/register',
+      home: RegisterForm(),
+      routes: {
+        '/register':(context)=>RegisterForm(),
+        '/login':(context)=>LoginForm()
+      },
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.lightBlue,
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+        splashColor: Colors.white70
       ),
-      home: ScaffoldRoute(),
     );
   }
 }
-
-class ScaffoldRoute extends StatefulWidget {
-  @override
-  _ScaffoldRouteState createState() => _ScaffoldRouteState();
-}
-
-class _ScaffoldRouteState extends State<ScaffoldRoute> with SingleTickerProviderStateMixin  {
-  int _selectedIndex = 1;
-
-  TabController _tabController; //需要定义一个Controller
-  List tabs = ["新闻", "历史", "图片"];
-
-  @override
-  void initState() {
-    super.initState();
-    //创建Controller
-    var tabController = TabController(length: tabs.length, vsync: this);
-    _tabController = tabController;
-  }
-
  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          //生成Tab菜单
-          bottom: TabBar(
-            controller: _tabController
-            ,tabs: tabs.map((e) => Tab(text: e)).toList()),
-          //导航栏
-          title: Text("App Name"),
-          actions: <Widget>[
-            //导航栏右侧菜单
-            IconButton(icon: Icon(Icons.share), onPressed: () {}),
-          ],
-          leading: Builder(
-            builder: (context) {
-              return IconButton(
-                  icon: Icon(Icons.dashboard, color: Colors.white),
-                  onPressed: () {
-                    //打开抽屉
-                    Scaffold.of(context).openDrawer();
-                  });
-            },
-          )),
-      drawer: MyDrawer(), //抽屉
-      bottomNavigationBar: BottomNavigationBar(
-        // 底部导航
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.business), title: Text('Business')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.school), title: Text('School')),
-        ],
-        currentIndex: _selectedIndex,
-        fixedColor: Colors.blue,
-        onTap: _onItemTapped,
-      ),
-      floatingActionButton: FloatingActionButton(
-          //悬浮按钮
-          child: Icon(Icons.add),
-          onPressed: _onAdd),
-      body: TabBarView(
-        controller:_tabController,
-        children: [
-          SwitchAndCheckBoxTestRoute(),
-          ImageWidget(),
-          RandomWordsWidget()
-        ]
-        ),
-    );
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  void _onAdd() {}
-}
 
 //
 class MyDrawer extends StatelessWidget {
