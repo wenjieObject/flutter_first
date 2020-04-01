@@ -1,34 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'login/login.dart';
-import 'login/register.dart';
-
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'loading.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: mdefaultTheme,
+    title: 'this is title',
+    //路由
+    routes: <String, WidgetBuilder>{
+      //"app":
+      "company_info": (BuildContext context) => WebviewScaffold(
+            url: 'https://www.baidu.com',
+            appBar: AppBar(
+              title: Text('this.is.flutter'),
+              leading: IconButton(
+                  icon: Icon(Icons.home),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed('app');
+                  }),
+            ),
+          )
+    },
+    home: LoadingPage(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/register',
-      home: RegisterForm(),
-      routes: {
-        '/register':(context)=>RegisterForm(),
-        '/login':(context)=>LoginForm()
-      },
-      theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
-        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-        splashColor: Colors.white70
-      ),
-    );
-  }
-}
- 
+final ThemeData mdefaultTheme = ThemeData(primaryColor: Colors.redAccent);
 
 //
 class MyDrawer extends StatelessWidget {
@@ -119,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   return false;
                 },
                 child: Container(child: Text('123'))),
-            ImageWidget(),
+            //ImageWidget(),
             Text(
               'You have pushed the button this many times:',
             ),
@@ -219,15 +218,15 @@ class IconWidget extends StatelessWidget {
 // }
 
 //加载图片
-class ImageWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Image.asset(
-      'images/a_dot_ham.jpg',
-      width: 100,
-    );
-  }
-}
+// class ImageWidget extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Image.asset(
+//       'images/a_dot_ham.jpg',
+//       width: 100,
+//     );
+//   }
+// }
 
 //echo
 class Echo extends StatelessWidget {
