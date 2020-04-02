@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'loading.dart';
+import 'app.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -10,7 +11,7 @@ void main() {
     title: 'this is title',
     //路由
     routes: <String, WidgetBuilder>{
-      //"app":
+      "app":(BuildContext context)=>AppPage(),
       "company_info": (BuildContext context) => WebviewScaffold(
             url: 'https://www.baidu.com',
             appBar: AppBar(

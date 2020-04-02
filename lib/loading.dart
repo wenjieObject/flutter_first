@@ -11,8 +11,8 @@ class _LoadingPageState extends State<LoadingPage> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacementNamed('company_info');
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.of(context).pushReplacementNamed('app');
     });
   }
 

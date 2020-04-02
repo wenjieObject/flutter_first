@@ -94,6 +94,24 @@
 67-->E:\Flutter\flutter_first\android\app\src\main\AndroidManifest.xml:44:13-44
 68            android:value="2" />
 68-->E:\Flutter\flutter_first\android\app\src\main\AndroidManifest.xml:45:13-30
-69    </application>
-70
-71</manifest>
+69
+70        <provider
+70-->[:flutter_webview_plugin] E:\Flutter\flutter_first\build\flutter_webview_plugin\intermediates\library_manifest\debug\AndroidManifest.xml:9:9-18:20
+71            android:name="androidx.core.content.FileProvider"
+71-->[:flutter_webview_plugin] E:\Flutter\flutter_first\build\flutter_webview_plugin\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-62
+72            android:authorities="com.example.flutter_first.fileprovider"
+72-->[:flutter_webview_plugin] E:\Flutter\flutter_first\build\flutter_webview_plugin\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-64
+73            android:exported="false"
+73-->[:flutter_webview_plugin] E:\Flutter\flutter_first\build\flutter_webview_plugin\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-37
+74            android:grantUriPermissions="true" >
+74-->[:flutter_webview_plugin] E:\Flutter\flutter_first\build\flutter_webview_plugin\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-47
+75            <meta-data
+75-->[:flutter_webview_plugin] E:\Flutter\flutter_first\build\flutter_webview_plugin\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-17:53
+76                android:name="android.support.FILE_PROVIDER_PATHS"
+76-->[:flutter_webview_plugin] E:\Flutter\flutter_first\build\flutter_webview_plugin\intermediates\library_manifest\debug\AndroidManifest.xml:16:17-67
+77                android:resource="@xml/filepaths" />
+77-->[:flutter_webview_plugin] E:\Flutter\flutter_first\build\flutter_webview_plugin\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-50
+78        </provider>
+79    </application>
+80
+81</manifest>
